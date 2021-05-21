@@ -1,0 +1,28 @@
+<hr>
+<hr>
+<h1 class="text-center text-primary">{{title6}}</h1>
+<br>
+<div class="container">
+    <div class="radio form-check">
+        <input type="radio" [checked]="checked" (click)="changeStatus()" class="form-check-input">
+        <p [ngStyle]="{'border': toggleBorder() }" class="form-check-label">This Element's border changes</p>
+    </div>
+</div>
+
+<hr>
+<h1 class="text-center text-primary">{{title7}}</h1>
+<br>
+<main class="container">
+    <table>
+        <tbody>
+            <tr>
+                <td *ngFor="let c of cards,let i=index">
+                    <button class="btn btn-secondary" (click)="stateButton(i)">{{c}}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button (click)="AddCard()" class="btn btn-primary">Add Card</button>
+</main>
+<hr>

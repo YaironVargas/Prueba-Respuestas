@@ -1,0 +1,86 @@
+<!--formulario-->
+
+<div class="container">
+    <div class="starter-template">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <form [formGroup]="contacto" (ngSubmit)=onSubmit()>
+
+                    <!-- *************** select de cake ****************** -->
+
+                    <div class="form-group">
+                        <label for="">cakes :</label>
+                        <select formControlName="cake" id="" class="form-control custom-select" [ngClass]="{'is-invalid': submitted && f.cake.errors}">
+                            <option value="" class="text-center text-black-50">  - Select -   </option>
+                            <option [value]="c" *ngFor="let c of cake" >{{c}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.cake.errors" class="invalid-feedback">
+                            <div *ngIf="f.cake.errors.required">
+                                Por favor sleccione un cake
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- *************** nombres y apellidos ****************** -->
+
+                    <div class="form-group">
+                        <label for="">Nombres y Apellidos: </label>
+                        <input type="text" formControlName="nombre" class="form-control" [ngClass]="{'is-invalid': submitted && f.nombre.errors}">
+                        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.nombre.errors.required">
+                                Por favor ingrese su nombre y su apellido
+                            </div>
+                        </div>
+                    </div>
+                    <!-- *************** correo ****************** -->
+                    <div class="form-group">
+                        <label for="">Correo: </label>
+                        <input type="text" formControlName="correo" class="form-control" [ngClass]="{'is-invalid': submitted && f.correo.errors}">
+                        <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+                            <div *ngIf="f.correo.errors.required">
+                                Por favor ingrese su correo
+                            </div>
+                            <div *ngIf="f.correo.errors.pattern">
+                                Correo invalido, por favor siga el siguiente patrón: <code>name@domain.com</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- *************** Asunto ****************** -->
+
+                    <div class="form-group">
+                        <label for="">Asunto: </label>
+                        <input type="text" formControlName="asunto" class="form-control" [ngClass]="{'is-invalid': submitted && f.asunto.errors}">
+                        <div *ngIf="submitted && f.asunto.errors" class="invalid-feedback">
+                            <div *ngIf="f.asunto.errors.required">
+                                Por favor ingrese el Asunto
+                            </div>
+                        </div>
+                    </div>
+                    <!-- *************** mensaje ****************** -->
+
+                    <div class="form-group">
+                        <label for="">mensaje: </label>
+                        <textarea formControlName="mensaje" id="" cols="30" class="form-control" [ngClass]="{'is-invalid': submitted && f.mensaje.errors}"></textarea>
+                        <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+                            <div *ngIf="f.mensaje.errors.required">
+                                Por favor deje la descripción del producto seleccionado
+                            </div>
+                            <div *ngIf="f.mensaje.errors.minlength">
+                                Debe ingresar entre 6 y 250 caracteres
+                            </div>
+                            <div *ngIf="f.mensaje.errors.maxlength">
+                                Debe ingresar entre 6 y 250 caracteres
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- *************** boton ****************** -->
+                    <div class="form-group">
+                        <button class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

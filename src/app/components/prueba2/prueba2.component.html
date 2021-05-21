@@ -1,0 +1,47 @@
+<hr>
+<h1 class="text-center text-primary">{{title4}}</h1>
+<br>
+
+<!-- Input Field -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="">Name :</label>
+            <input class="form-control" type="text" name="inputName" placeholder="Enter the Name..." [(ngModel)]="us.name">{{us.name}}
+        </div>
+        <div class="col-sm-6">
+            <label for="">City :</label>
+            <input class="form-control" type="text" name="inputValue" placeholder="Enter de Value..." [(ngModel)]="us.value">{{us.value}}
+        </div>
+        <hr>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="addElement()">Add</button>
+    <hr>
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div *ngFor="let user of users,let i=index " class="text-center">{{user | json}}</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <hr>
+    <h1 class="text-center text-primary">{{title5}}</h1>
+    <br>
+    <div class="text-center">
+        <strong> The decimal number is: {{n | number: '3.2-5'}}</strong>
+    </div>
+    <br>
+    <input class="form-control" type="text" name="numero" [(ngModel)]="num">
+    <br>
+    <button class="btn btn-success" (click)="convertDecimal()">Convert</button>
+
+
+</div>

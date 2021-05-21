@@ -1,0 +1,166 @@
+<div class="container badge-light">
+    <h4 class="h4-1">Add a new employee</h4>
+    <hr>
+    <div class="col-sm-12">
+        <form class="example-form" [formGroup]="contact" (ngSubmit)="onSubmit()" novalidate>.
+            <div class="addMember">
+
+                <!-- name -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name: </mat-label>
+                    <input matInput placeholder="Enter your Name" type="text" name="name" formControlName="name">
+
+                    <!-- error-name -->
+                    <mat-error *ngIf="contact.get('name').errors && contact.get('name').touched ">
+                        <mat-error *ngIf="contact.get('name').hasError('required')">
+                            Hey.. Add your name!!
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- position -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Position: </mat-label>
+                    <input matInput placeholder="Enter your position..." type="text" name="position" formControlName="position">
+
+                    <!-- error-position -->
+                    <mat-error *ngIf="contact.get('position').errors && contact.get('position').touched">
+                        <mat-error *ngIf="contact.get('position').hasError('required')">
+                            Hey.. what is your position?
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- email -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email: </mat-label>
+                    <input matInput placeholder="Enter your Email..." type="email" name="email" formControlName="email">
+
+                    <!-- error-email -->
+                    <mat-error *ngIf="contact.get('email').errors && contact.get('email').touched">
+                        <mat-error *ngIf="contact.get('email').hasError('required')">
+                            Hey.. Your email is required!!
+                        </mat-error>
+                        <mat-error *ngIf="contact.get('email').hasError('pattern')">
+                            Hey..Your email no is correct, enter a email correct!!
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <!-- age -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Age: </mat-label>
+                    <input matInput placeholder="Enter your Age..." type="number" name="age" formControlName="age">
+
+                    <!-- error-age -->
+                    <mat-error *ngIf="contact.get('age').errors && contact.get('age').touched">
+                        <mat-error *ngIf="contact.get('age').hasError('required')">
+                            Hey.. Your email is required!!
+                        </mat-error>
+                        <mat-error *ngIf="contact.get('age').hasError('min')">
+                            Hey..your not are 16 year old!!
+                        </mat-error>
+                        <mat-error *ngIf="contact.get('age').hasError('max')">
+                            Hey.. Your are retire!!
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <!-- button -->
+                <button mat-raised-button class="btn-Add"><mat-icon>add</mat-icon>Add</button>
+            </div>
+            <br>
+        </form>
+        <hr>
+        <br>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="encabezado">
+                <div class="text-center h1-1">
+                    <mat-icon class="iconlist">list</mat-icon>
+                    <h1>{{ title}}</h1>
+                </div>
+                <div class="alert alert-success alert-dismissible" *ngIf="msg">
+                    {{msg}}<a href="#" class="close" (click)="closeAlert()">&times;</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-8 bloque1">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>name: </th>
+                        <th>Position: </th>
+                        <th>Email:</th>
+                        <th>Age:</th>
+                        <th>Action:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of employees; let i=index">
+                        <td>{{i}}</td>
+                        <td> {{e.name}}</td>
+                        <td>{{e.position}}</td>
+                        <td>{{e.email}}</td>
+                        <td>{{e.age}}</td>
+                        <td class="group-btn">
+                            <button mat-raised-button class="btn-edit" (click)="editEmployees(i)" title="edit"><mat-icon>edit</mat-icon></button>
+                            <button mat-raised-button class="btn-delete" (click)="deleteEmployees(employees[i])" title="delete"> <mat-icon>delete</mat-icon></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4 ">
+
+            <div [hidden]="hidden">
+                <form class="example-form updateElement">
+                    <hr>
+                    <h4>Edit Employee</h4>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Name: </mat-label>
+                        <input matInput placeholder="Enter your Name" type="text" name="name" [(ngModel)]="model2.name">
+                        <button mat-button *ngIf="model2.name" matSuffix mat-icon-button aria-label="Clear" (click)="model2.name=''">
+                            <mat-icon>close</mat-icon>
+                          </button>
+
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Position: </mat-label>
+                        <input matInput placeholder="Enter your position..." type="text" name="position" [(ngModel)]="model2.position">
+                        <button mat-button *ngIf="model2.position" matSuffix mat-icon-button aria-label="Clear" (click)="model2.position=''">
+                                    <mat-icon>close</mat-icon>
+                                  </button>
+
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email: </mat-label>
+                        <input matInput placeholder="Enter your Email..." type="email" name="email" [(ngModel)]="model2.email">
+                        <button mat-button *ngIf="model2.email" matSuffix mat-icon-button aria-label="Clear" (click)="model2.email=''">
+                                    <mat-icon>close</mat-icon>
+                                  </button>
+
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Age: </mat-label>
+                        <input matInput placeholder="Enter your Age..." type="number" name="age" [(ngModel)]="model2.age">
+                    </mat-form-field>
+                    <br>
+                    <div class="btns-update">
+                        <div class="col-sm-8 cont-update"> <button mat-raised-button type="submit" class="btn-update" (click)="updateEmployees()"><mat-icon>update</mat-icon>Update</button> </div>
+                        <div class="col-sm-4"> <button mat-raised-button type="reset" class="btn-cancel" (click)="cancelUpdate()"><mat-icon>cancel</mat-icon>Cancel</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

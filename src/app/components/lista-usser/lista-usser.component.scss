@@ -1,0 +1,123 @@
+    /* Statements **/
+    
+    $margin-buttom: 2px 3px;
+    $extra-small:0.9rem;
+    $small-icon: 1rem;
+    $medium-icon:1.8rem;
+    $large-icon:2.5rem;
+    $green-color:#46bf06;
+    $red-color: #f70025;
+    $blue-color1:#4897d8;
+    $blue-color2: #2988bc;
+    $white-color:white;
+    /* fin de declaracion de variables Aqui**/
+    
+    .encabezado {
+        display: grid;
+        grid-template-columns: max-content 250px;
+        place-content: center;
+        place-items: center;
+        gap: 20px;
+    }
+    
+    .h4-1 {
+        margin-top: 30px;
+    }
+    
+    .h1-1 {
+        display: grid;
+        margin-top: 10px;
+        grid-template-columns: 30px 150px;
+        place-content: center;
+        font-weight: bolder;
+    }
+    
+    .addMember {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) 80px;
+        gap: 20px;
+        place-items: center;
+        place-content: center;
+    }
+    
+    .iconlist {
+        font-size: 1.9rem;
+    }
+    
+    button {
+        margin: $margin-buttom
+    }
+    
+    .bloque1 {
+        padding: {
+            right: 10px;
+            top: 30px;
+            left: 60px;
+        }
+    }
+    
+    .bloque2 {
+        padding: {
+            right: 60px;
+            top: 30px;
+        }
+    }
+    
+    mat-icon {
+        font-size: $small-icon;
+        margin-left: -12px;
+        margin-top: 5px;
+    }
+    
+    .btn-edit {
+        background-color: $blue-color1;
+        color: $white-color;
+        height: 30px;
+        width: 30px !important;
+        min-width: unset!important;
+    }
+    
+    .btn-update {
+        background-color: $blue-color1;
+        color: $white-color;
+    }
+    
+    .btn-delete {
+        background-color: $red-color;
+        color: $white-color;
+        height: 30px;
+        width: 30px !important;
+        min-width: unset!important;
+    }
+    
+    .btn-Add {
+        background-color: $green-color;
+        color: $white-color
+    }
+    
+    .btn-cancel {
+        background-color: $red-color;
+        color: $white-color;
+    }
+    
+    .icon-header {
+        font-size: $medium-icon;
+        margin: {
+            top: 8px;
+            right: 10px;
+        }
+    }
+    
+    .updateElement {
+        margin-left: 90px;
+        margin-top: 29px;
+    }
+    
+    .cont-update {
+        padding-left: 0;
+    }
+    
+    .btns-update {
+        display: grid;
+        grid-template-columns: 80px 80px;
+    }
