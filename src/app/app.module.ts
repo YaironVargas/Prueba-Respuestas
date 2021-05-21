@@ -19,9 +19,7 @@ import{MatCardModule} from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import{MatSnackBarModule} from '@angular/material/snack-bar'
 
-import { ListaUsserComponent } from './components/lista-usser/lista-usser.component';
-import { AppLoginComponent } from './components/login-usser/login-usser.component';
-import { FormularioReactivoComponent } from './components/formulario-reactivo/formulario-reactivo.component';
+
 import { PruebaComponent } from './components/prueba/prueba.component';
 import { Prueba2Component } from './components/prueba2/prueba2.component';
 
@@ -30,11 +28,6 @@ import { Prueba2Component } from './components/prueba2/prueba2.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DulceriaComponent,
-    ListaUsserComponent,
-    AppLoginComponent,
-    FormularioReactivoComponent,
     PruebaComponent,
     Prueba2Component
   ],
